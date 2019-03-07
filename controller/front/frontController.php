@@ -12,7 +12,7 @@ class FrontController extends RecipesManager {
         require 'view/listPostsView.php';
     }
 
-    public function post($idRecipe) {
+    public function recipe($idRecipe) {
 
         $recipeManager = $this->getRecipe($_GET['id']);
 
