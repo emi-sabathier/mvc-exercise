@@ -19,9 +19,9 @@ class RecipesManager extends Manager {
         $db = $this->dbConnect();
         $q = $db->prepare('SELECT id, title, author, content FROM recipes WHERE id = ?');
         $q->execute(array($idRecipe));
-        $dataPost = $q->fetch(); 
+        $dataRecipe = $q->fetch(); 
 
-        return $dataPost;
+        return $dataRecipe;
 
     }
 }
