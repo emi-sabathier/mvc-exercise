@@ -4,7 +4,7 @@ require 'Manager.php';
 
 class RecipesManager extends Manager {
 
-    public function getListRecipes() {
+    protected function getListRecipes() {
 
         $db = $this->dbconnect(); // this.dbConnect()
         $q = $db->prepare('SELECT id, title, author, DATE_FORMAT(date_creation, \'%d/%m/%Y %H:%i:%s\') AS date_fr FROM recipes ORDER BY date_creation DESC');
@@ -14,7 +14,7 @@ class RecipesManager extends Manager {
         return $dataListPosts;
     }
 
-    public function getRecipe($idRecipe) {
+    protected function getRecipe($idRecipe) {
 
         $db = $this->dbConnect();
         $q = $db->prepare('SELECT id, title, author, content FROM recipes WHERE id = ?');
