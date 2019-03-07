@@ -13,7 +13,7 @@ class RecipesManager extends Manager {
 
         return $dataListPosts;
     }
-    
+
     public function getRecipe($idRecipe) {
 
         $db = $this->dbConnect();
