@@ -14,9 +14,8 @@ class FrontController extends RecipesManager {
 
     public function recipe($idRecipe) {
 
-        $recipeManager = $this->getRecipe($_GET['id']);
+        $recipeManager = $this->getRecipe($idRecipe);
 
         require 'view/postView.php';
     }
-
 }
