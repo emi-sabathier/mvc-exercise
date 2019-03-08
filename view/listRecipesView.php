@@ -3,21 +3,26 @@
 <?php ob_start();?>
 <h1>Bienvenue sur marmithon!</h1>
 
-<div class="content">
+<div>
     <h3>Liste des recettes</h3>
-    <?php while ($dataListPosts) {?>
+
+    <?php
+foreach ($recipes as $recipe) {?>
+
     <p>
-        <?=htmlspecialchars($dataListPosts['title'])?>
+        <strong><?=htmlspecialchars($recipe['title'])?></strong>
         écrit par
-        <?=htmlspecialchars($dataListPosts['author'])?>
+        <?=htmlspecialchars($recipe['author'])?>
         le
-        <?=htmlspecialchars($dataListPosts['date_creation_fr'])?>
+        <?=htmlspecialchars($recipe['date_fr'])?>
     </p>
-    <p><a href="index.php?action=recipe&id=<?= $dataListPosts['id'] ?>">Voir la recette</a></p>
-</div>
-<?php 
+    <p><a href="index.php?action=recipe&id=<?=$recipe['id']?>">Voir la recette</a></p>
+    <?php
 }
 ?>
+</div>
+
+
 <?php $content = ob_get_clean();?>
 
 <?php require 'template.php';?>

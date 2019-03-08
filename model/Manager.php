@@ -1,6 +1,6 @@
 <?php
 
-namespace TP_recipes\model;
+namespace EmilieSabathier\model;
 
 class Manager
 {

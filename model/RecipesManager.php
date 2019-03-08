@@ -1,27 +1,30 @@
 <?php
 
-require 'Manager.php';
+namespace EmilieSabathier\model;
+use EmilieSabathier\model\Manager;
 
-class RecipesManager extends Manager {
+require_once 'Manager.php'; 
 
-    protected function getListRecipes() {
+class RecipesManager extends Manager 
+{
+
+    public function getListRecipes() {
 
         $db = $this->dbconnect(); // this.dbConnect()
-        $q = $db->prepare('SELECT id, title, author, DATE_FORMAT(date_creation, \'%d/%m/%Y %H:%i:%s\') AS date_fr FROM recipes ORDER BY date_creation DESC');
-        $q->execute();
-        $dataListPosts = $q->fetch();
-
-        return $dataListPosts;
+        $q = $db->query('SELECT id, title, author, DATE_FORMAT(date_creation, \'%d/%m/%Y %H:%i:%s\') AS date_fr FROM recipes ORDER BY date_creation DESC');
+        $recipes = $q->fetchAll();
+        
+        return $recipes;
     }
 
-    protected function getRecipe($idRecipe) {
+    public function getRecipe($idRecipe) {
 
         $db = $this->dbConnect();
         $q = $db->prepare('SELECT id, title, author, content FROM recipes WHERE id = ?');
         $q->execute(array($idRecipe));
-        $dataRecipe = $q->fetch(); 
+        $recipe = $q->fetch(); 
 
-        return $dataRecipe;
+        return $recipe;
 
     }
 }

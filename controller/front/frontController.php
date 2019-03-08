@@ -1,21 +1,23 @@
 <?php
-// affiche la bonne view
+namespace EmilieSabathier\controller\front;
+use EmilieSabathier\model\RecipesManager;
 
-require 'model/RecipesManager.php';
+require_once 'model/RecipesManager.php';
 
-class FrontController extends RecipesManager {
+class FrontController {
 
     public function listRecipes(){
         
-        $recipesManager= $this->getListRecipes();
+        $recipesManager = new RecipesManager();
+        $recipes = $recipesManager->getListRecipes(); 
 
-        require 'view/listPostsView.php';
+        require 'view/listRecipesView.php';
+        // on est tjs dans cette fonction avec la view
     }
 
-    public function recipe($idRecipe) {
+    public function displayRecipe($idRecipe) {
+        $recipe-> $recipesManager->getRecipe($idRecipe);
 
-        $recipeManager = $this->getRecipe($idRecipe);
-
-        require 'view/postView.php';
+        require 'view/recipeView.php';
     }
 }

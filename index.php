@@ -1,35 +1,34 @@
 <?php
+use EmilieSabathier\controller\front\FrontController;
 
 require 'controller/front/frontController.php';
 
-$action = $_GET['action'];
-$idRecipe = $_GET['idRecipe'];
-
 try {
 
-    if (isset($action)) {
+    if (isset($_GET['action'])) {
 
-        if (isset($action) == 'listRecipes') {
+        if ($_GET['action'] == 'listrecipes') {
 
-            listRecipes();
+            $recipesManager = new FrontController();
+            $recipesManager->listRecipes();
 
-            require 'view/listRecipesView.php';
+        } elseif ($_GET['action'] == 'recipe') {
 
-        } elseif (isset($action) ==  'recipe' ) {
+            if ($_GET['idRecipe'] && $idRecipe > 0) {
 
-            if (isset($idRecipe) && $idRecipe > 0) {
-
-                recipe($idRecipe);
+                displayRecipe($idRecipe);
                 require 'view/recipeView.php';
 
             } else {
-                throw new Exception ('Pas d\'identifiant de recette sélectionné');
+                throw new Exception('Pas d\'identifiant de recette sélectionné');
             }
         }
 
     } else {
-        listRecipes();
-        require 'view/listRecipesView.php';
+
+        $recipesManager = new FrontController();
+        $recipesManager->listRecipes();        
+        
     }
 
 } catch (Exception $e) {
