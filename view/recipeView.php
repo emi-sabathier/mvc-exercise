@@ -5,14 +5,15 @@
 
 <div class="content">
     <h3>
-        <?=htmlspecialchars($dataRecipe['title'])?>
+        <?=htmlspecialchars($recipe['title'])?>
     </h3>
     <p>Par
-        <?=htmlspecialchars($dataRecipe['author'])?>
+        <?=htmlspecialchars($recipe['author'])?>
         posté le
-        <?=htmlspecialchars($dataRecipe['date_creation_fr'])?>
+        <?=htmlspecialchars($recipe['date_fr'])?>
     </p>
-    <p><?= htmlspecialchars($dataRecipe['content']) ?></p>
+    <p><?= htmlspecialchars($recipe['content']) ?></p>
+    <p><a href="index.php">Retour</a></p>
 </div>
 
 <?php $content = ob_get_clean();?>

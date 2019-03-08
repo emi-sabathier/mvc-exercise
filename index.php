@@ -14,10 +14,10 @@ try {
 
         } elseif ($_GET['action'] == 'recipe') {
 
-            if ($_GET['idRecipe'] && $idRecipe > 0) {
+            if ($_GET['idRecipe'] && $_GET['idRecipe'] > 0) {
 
-                displayRecipe($idRecipe);
-                require 'view/recipeView.php';
+                $recipesManager = new FrontController();
+                $recipesManager->displayRecipe($_GET['idRecipe']);
 
             } else {
                 throw new Exception('Pas d\'identifiant de recette sélectionné');
@@ -27,8 +27,8 @@ try {
     } else {
 
         $recipesManager = new FrontController();
-        $recipesManager->listRecipes();        
-        
+        $recipesManager->listRecipes();
+
     }
 
 } catch (Exception $e) {

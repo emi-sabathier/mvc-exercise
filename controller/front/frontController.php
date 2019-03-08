@@ -16,7 +16,9 @@ class FrontController {
     }
 
     public function displayRecipe($idRecipe) {
-        $recipe-> $recipesManager->getRecipe($idRecipe);
+
+        $recipesManager = new RecipesManager();
+        $recipe = $recipesManager->getRecipe($idRecipe);
 
         require 'view/recipeView.php';
     }

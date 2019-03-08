@@ -3,7 +3,7 @@
 <?php ob_start();?>
 <h1>Bienvenue sur marmithon!</h1>
 
-<div>
+<div class="content">
     <h3>Liste des recettes</h3>
 
     <?php
@@ -16,7 +16,7 @@ foreach ($recipes as $recipe) {?>
         le
         <?=htmlspecialchars($recipe['date_fr'])?>
     </p>
-    <p><a href="index.php?action=recipe&id=<?=$recipe['id']?>">Voir la recette</a></p>
+    <p><a href="index.php?action=recipe&idRecipe=<?=$recipe['id']?>">Voir la recette</a></p>
     <?php
 }
 ?>
