@@ -20,7 +20,7 @@ if (isset($_GET['action'])) {
         header('Location: index.php');
 
     } 
-
+    
 } else {
 
     $recipesManager = new FrontController();
