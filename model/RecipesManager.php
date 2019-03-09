@@ -1,7 +1,6 @@
 <?php
 
 namespace EmilieSabathier\model;
-use EmilieSabathier\model\Manager;
 
 require_once 'Manager.php'; 
 
