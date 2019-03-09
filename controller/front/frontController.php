@@ -17,9 +17,17 @@ class FrontController {
 
     public function displayRecipe($idRecipe) {
 
-        $recipesManager = new RecipesManager();
-        $recipe = $recipesManager->getRecipe($idRecipe);
+        if ($_GET['idRecipe'] && $_GET['idRecipe'] > 0) {
 
-        require 'view/recipeView.php';
+            $recipesManager = new RecipesManager();
+            $recipe = $recipesManager->getRecipe($idRecipe);
+    
+            require 'view/recipeView.php';
+
+        } else {
+            
+            header('Location: index.php');
+        }
+
     }
 }
