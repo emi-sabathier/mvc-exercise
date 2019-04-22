@@ -1,8 +1,6 @@
 <?php
-namespace EmilieSabathier\controller\front;
-use EmilieSabathier\model\RecipesManager;
-
-require_once 'model/RecipesManager.php';
+namespace recipes\controller;
+use recipes\model\RecipesManager;
 
 class FrontController {
 
@@ -28,6 +26,5 @@ class FrontController {
             
             header('Location: index.php');
         }
-
     }
 }

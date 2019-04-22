@@ -1,8 +1,6 @@
 <?php
 
-namespace EmilieSabathier\model;
-
-require_once 'Manager.php'; 
+namespace recipes\model;
 
 class RecipesManager extends Manager 
 {

@@ -1,8 +1,10 @@
 <?php
 
-use EmilieSabathier\controller\front\FrontController;
+use \recipes\controller\FrontController;
+use \recipes\Autoloader;
 
-require 'controller/front/frontController.php';
+require 'Autoloader.php';
+Autoloader::register();
 
 if (isset($_GET['action'])) {
 

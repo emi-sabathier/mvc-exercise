@@ -1,6 +1,6 @@
 <?php
 
-namespace EmilieSabathier\model;
+namespace recipes\model;
 
 class Manager
 {
